@@ -41,38 +41,21 @@
 
 ### Données utilisées
 
-> 📝 **Explication du contenu à rédiger**
->
-> Décrire les données utilisées et leur éventuelles restrictions d'accès.
+Base de données [OpenAlex](https://openalex.org/), qui est une base de données ouverte d'articles scientifiques, de revues, d'auteurs et d'institutions. Elle est utilisée pour extraire des informations pertinentes sur les publications scientifiques.
 
 ### Schéma flux de données (optionnel)
 
 ### Technologies
 
-> 📝 **Explication du contenu à rédiger**
->
-> Donner quelques repères sur les technologies utilisées : langage, logiciels, éventuellement dossiers où trouver le code, etc.
+python, [openalex api](https://docs.openalex.org/), llm, ollama, mistral 
 
 ### Maintenance
 
-> 📝 **Explication du contenu à rédiger**
->
-> Expliquer si le projet est maintenu et comment, par exemple parmi les alternatives suivantes :
->
 > - Projet en développement actif
-> - Projet finalisé ✅, sans maintenance ni modification
-> - Maintenance minimale 📞, pour mettre à jour les dépendances ou en cas de problème
-> - Maintenance planifiée ⏰, avec des tâches récurrentes à réaliser (auquel cas décrire les tâches et leur fréquence)
 
 ## Contacts
 
-> 📝 **Explication du contenu à rédiger**
->
-> Description des contacts importants du projet, en précisant pour chacun :
->
-> - l'organisation (service, pôle, etc),
-> - le rôle sur le projet,
-> - le contact mail (générique et non personnel).
+matt.dout@gmail.com
 
 ## Détails techniques
 
@@ -86,16 +69,9 @@ uv run llm install llm-mistral # install mistral plugin
 uv run llm keys set mistral # go there for creating an API key for mistral
 ```
 
-- Usage:
+- Usage: `uv run llm -m mistral-small "tell me a joke about pelican"` 
 
-```
-ul -m mistral-small "tell me a joke about pelican"
-``` 
-
-- Paramètre un modèle par défaut, par exemple, un llama local (nécessite le téléchargement du plugin [llm-gpt4all](https://github.com/simonw/llm-gpt4all)):
-
-```
-uv run llm 
+- Paramètre un modèle par défaut : `uv default mistral-small`
 
 ### En utilisant un serveur Ollama (permet d'avoir un modèle local instancié ie. chargé en mémoire) 
 
@@ -103,4 +79,6 @@ uv run llm
 
 - Télécharger un modèle en local, par exemple, Llama 3.1 1B : `ollama pull llama3.2:1b`
 
-- 
+- Installer le plugin Ollama pour LLM : `llm install llm-ollama`
+
+- Poser une question: `llm -m llama3.2:1b 'How much is 2+2?'

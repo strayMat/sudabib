@@ -18,7 +18,10 @@ classifiers = [
 dependencies = [
     "click>=8.1.8",
     "llm>=0.26",
+    "llm-gemini>=0.21",
+    "llm-ollama>=0.11",
     "mypy==1.15.0",
+    "pyalex>=0.18",
 ]
 
 [project.urls]
