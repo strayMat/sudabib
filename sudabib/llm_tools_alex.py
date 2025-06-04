@@ -9,7 +9,7 @@ def get_alex_articles(query: str):
     "Get articles from OpenAlex based on a query in natural language."
 
     pyalex.config.email = DEFAULT_OPEN_ALEX_MAIL
-    works = Works().search(query).sort(cited_by_count="desc").get()
+    works = Works().search(query).get()
     restricted_keys = [
         "id",
         "title",
@@ -25,8 +25,10 @@ def get_alex_articles(query: str):
     return works_restricted
 
 
-def get_alex_abstract(article_id: str):
+def get_alex_abstract_from_id(article_id: str):
     "Get the abstract of an article from OpenAlex based on its ID."
+
     pyalex.config.email = DEFAULT_OPEN_ALEX_MAIL
-    work = Works().get(article_id)
-    return work.abstract if work else None
+    work = Works().get(article_id)[0][0]
+    breakpoint()
+    return work.get("abstract", None) if work else None
